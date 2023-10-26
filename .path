@@ -1,0 +1,4 @@
+#typeset -gU path fpath
+prepend-path "$HOME/.cargo/bin"
+prepend-path "$HOME/bin/"
+prepend-path "$HOME/.local/bin/"

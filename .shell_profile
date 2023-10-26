@@ -1,0 +1,4 @@
+# this file is only intended to be sourced by .bash_profile and .zsh_profile
+source ./.function
+source ./.alias
+source ./.path
