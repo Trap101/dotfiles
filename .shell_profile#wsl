@@ -1,0 +1,11 @@
+export BROWSER="wslview"
+export PHOST=$host_ip
+export OBSIDIAN_NOTES="/mnt/d/All Vaults/"
+prepend-path "/snap/bin"
+prepend-path "/mnt/d/Home/Scoop/apps/sioyek/current/"
+prepend-path "$HOME/Applications/ltex-ls-16.0.0/bin/"
+host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
+WSL_DP="/mnt/d/Home/System/Desktop/"
+cpd(){
+	cp -f "$@" $WSL_DP
+}

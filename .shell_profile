@@ -1,4 +1,20 @@
 # this file is only intended to be sourced by .bash_profile and .zsh_profile
-source ./.function
-source ./.alias
-source ./.path
+source "$HOME/.function"
+if [ -n "$ZSH_VERSION" ]; then
+	if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+	    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+	fi	
+fi
+source "$HOME/.alias"
+source "$HOME/.path"
+source "$HOME/.env"
+if [ -n "$ZSH_VERSION" ]; then
+	source "$HOME/.shell_profile#zsh"	
+fi
+if [ -n $WSL_INTEROP ]; then
+	source "$HOME/.shell_profile#wsl"
+fi
+HISTFILE="$HOME/.histfile"
+HISTSIZE=1000
+SAVEHIST=1000
+export PATH

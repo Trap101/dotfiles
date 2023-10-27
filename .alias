@@ -1,0 +1,16 @@
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias szc="source $HOME/.zshrc"
+alias ezc="$EDITOR nvim -c 'WorkspacesOpen zsh-config' -c 'next .zshrc .shell_path .aliases'"
+alias desktop="$WSL_DP"
+alias csp="/mnt/d/Home/CompSciProj/"
+alias expl="'/mnt/c/Windows/explorer.exe' ."
+alias csw='nvim -c "WorkspacesOpen csw"'
+alias enc='nvim -c "WorkspacesOpen nvim_config"'
+alias notes='nvim -c "WorkspacesOpen notes"'
+alias cat="batcat"
+alias grep="rg"
+alias vi="nvim"
+alias vim="nvim"
+alias ls="ls --color -h -l"
+alias ewc="$EDITOR $WEZTERM_CONFIG_FILE"
+alias home="$HOME"

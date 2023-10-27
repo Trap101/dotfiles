@@ -1,0 +1,56 @@
+#environments
+export ZSH_AUTOSUGGEST_STRATEGY=(
+    history
+    completion
+)
+export DIRCOLOR_SOURCE="$HOME/.zsh/.dircolors"
+export NVM_LAZY_LOAD=true
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
+export ZSH_PYENV_LAZY_VIRTUALENV=true
+setopt autocd extendedglob nomatch
+
+#pyenv setup
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+
+#nvm setup
+export NVM_DIR="$HOME/.nvm"
+
+#zstyles
+zstyle ':completion:*' menu select
+zstyle :compinstall filename '/home/chent801/.zshrc'
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+#plugins
+if [[ ! -f ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh ]]; then
+    git clone https://github.com/agkozak/zcomet.git ${ZDOTDIR:-${HOME}}/.zcomet/bin
+fi
+if [ ! -f "$HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh" ]; then
+    git clone https://github.com/catppuccin/zsh-syntax-highlighting.git
+    mkdir $HOME/.zsh
+    cp -v zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh $HOME/.zsh/
+    rm -r "./zsh-syntax-highlighting"
+fi
+source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh
+zcomet load ohmyzsh plugins/gitfast
+zcomet load romkatv/powerlevel10k
+
+# It is good to load these popular plugins last, and in this order:
+#
+zcomet load zpm-zsh/ls
+zcomet load joel-porquet/zsh-dircolors-solarized
+zcomet load johannchangtw/zsh-interactive-cd
+zcomet load zsh-users/zsh-syntax-highlighting
+zcomet load zsh-users/zsh-autosuggestions
+zcomet load zsh-users/zsh-completions
+zcomet load ohmyzsh lib git.zsh
+zcomet load ohmyzsh plugins/gitfast
+zcomet load lukechilds/zsh-nvm
+zcomet load davidparsson/zsh-pyenv-lazy
+# Run compinit and compile its cache
+zcomet compinit
+#setupsolarized
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export MODULAR_HOME="/home/chent801/.modular"
